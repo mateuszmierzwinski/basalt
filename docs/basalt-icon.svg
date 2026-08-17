@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<!-- basalt — a colonnade of hexagonal columns in dark glass.
+     Isometric and block-built like Bazel's mark, so the kinship reads;
+     hexagonal rather than cubic, and glass rather than green, so it is
+     not mistaken for it. Bases dissolve rather than being cut off. -->
+<defs>
+  <linearGradient id="top" x1="0" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#4a6377"/><stop offset="1" stop-color="#16212b"/></linearGradient>
+  <linearGradient id="topA" x1="0" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#c2843c"/><stop offset="1" stop-color="#3a1d0b"/></linearGradient>
+  <linearGradient id="right" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26343f" stop-opacity="0.96"/><stop offset="0.45" stop-color="#0b1116" stop-opacity="0.92"/><stop offset="0.88" stop-color="#0b1116" stop-opacity="0"/><stop offset="1" stop-color="#0b1116" stop-opacity="0"/></linearGradient>
+  <linearGradient id="front" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18222b" stop-opacity="0.96"/><stop offset="0.45" stop-color="#070c10" stop-opacity="0.92"/><stop offset="0.88" stop-color="#070c10" stop-opacity="0"/><stop offset="1" stop-color="#070c10" stop-opacity="0"/></linearGradient>
+  <linearGradient id="left" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#31434f" stop-opacity="0.96"/><stop offset="0.45" stop-color="#0e161d" stop-opacity="0.92"/><stop offset="0.88" stop-color="#0e161d" stop-opacity="0"/><stop offset="1" stop-color="#0e161d" stop-opacity="0"/></linearGradient>
+  <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#e6f7ff" stop-opacity="0.5"/>
+    <stop offset="0.5" stop-color="#e6f7ff" stop-opacity="0.08"/>
+    <stop offset="1" stop-color="#e6f7ff" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="rimFade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#9fdcef" stop-opacity="0.55"/>
+    <stop offset="0.5" stop-color="#9fdcef" stop-opacity="0.18"/>
+    <stop offset="1" stop-color="#9fdcef" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<g>
+
+  <polygon points="280.50,143.57 231.50,186.00 231.50,482.00 280.50,439.57" fill="url(#right)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <polygon points="231.50,186.00 133.50,186.00 133.50,482.00 231.50,482.00" fill="url(#front)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <polygon points="133.50,186.00 84.50,143.57 84.50,439.57 133.50,482.00" fill="url(#left)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <line x1="280.50" y1="143.57" x2="280.50" y2="439.57" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="231.50" y1="186.00" x2="231.50" y2="482.00" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="133.50" y1="186.00" x2="133.50" y2="482.00" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="84.50" y1="143.57" x2="84.50" y2="439.57" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="280.50,143.57 231.50,186.00 133.50,186.00 84.50,143.57 133.50,101.13 231.50,101.13" fill="url(#top)" fill-opacity="0.97" stroke="#9fdcef" stroke-opacity="0.9" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="84.50,143.57 133.50,101.13 231.50,101.13 280.50,143.57" fill="url(#sheen)"/>
+
+  <polygon points="427.50,185.57 378.50,228.00 378.50,496.00 427.50,453.57" fill="url(#right)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <polygon points="378.50,228.00 280.50,228.00 280.50,496.00 378.50,496.00" fill="url(#front)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <polygon points="280.50,228.00 231.50,185.57 231.50,453.57 280.50,496.00" fill="url(#left)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <line x1="427.50" y1="185.57" x2="427.50" y2="453.57" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="378.50" y1="228.00" x2="378.50" y2="496.00" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="280.50" y1="228.00" x2="280.50" y2="496.00" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="231.50" y1="185.57" x2="231.50" y2="453.57" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="427.50,185.57 378.50,228.00 280.50,228.00 231.50,185.57 280.50,143.13 378.50,143.13" fill="url(#topA)" fill-opacity="0.97" stroke="#9fdcef" stroke-opacity="0.9" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="231.50,185.57 280.50,143.13 378.50,143.13 427.50,185.57" fill="url(#sheen)"/>
+
+  <polygon points="280.50,262.43 231.50,304.87 231.50,560.87 280.50,518.43" fill="url(#right)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <polygon points="231.50,304.87 133.50,304.87 133.50,560.87 231.50,560.87" fill="url(#front)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <polygon points="133.50,304.87 84.50,262.43 84.50,518.43 133.50,560.87" fill="url(#left)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <line x1="280.50" y1="262.43" x2="280.50" y2="518.43" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="231.50" y1="304.87" x2="231.50" y2="560.87" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="133.50" y1="304.87" x2="133.50" y2="560.87" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="84.50" y1="262.43" x2="84.50" y2="518.43" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="280.50,262.43 231.50,304.87 133.50,304.87 84.50,262.43 133.50,220.00 231.50,220.00" fill="url(#top)" fill-opacity="0.97" stroke="#9fdcef" stroke-opacity="0.9" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="84.50,262.43 133.50,220.00 231.50,220.00 280.50,262.43" fill="url(#sheen)"/>
+
+  <polygon points="427.50,236.43 378.50,278.87 378.50,540.87 427.50,498.43" fill="url(#right)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <polygon points="378.50,278.87 280.50,278.87 280.50,540.87 378.50,540.87" fill="url(#front)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <polygon points="280.50,278.87 231.50,236.43 231.50,498.43 280.50,540.87" fill="url(#left)" fill-opacity="1" stroke="none" stroke-opacity="0" stroke-width="0" stroke-linejoin="round"/>
+  <line x1="427.50" y1="236.43" x2="427.50" y2="498.43" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="378.50" y1="278.87" x2="378.50" y2="540.87" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="280.50" y1="278.87" x2="280.50" y2="540.87" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="231.50" y1="236.43" x2="231.50" y2="498.43" stroke="url(#rimFade)" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="427.50,236.43 378.50,278.87 280.50,278.87 231.50,236.43 280.50,194.00 378.50,194.00" fill="url(#top)" fill-opacity="0.97" stroke="#9fdcef" stroke-opacity="0.9" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="231.50,236.43 280.50,194.00 378.50,194.00 427.50,236.43" fill="url(#sheen)"/>
+</g>
+</svg>

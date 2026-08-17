@@ -1,11 +1,20 @@
-# basalt
+<p align="center">
+  <img src="docs/basalt-icon-256.png" width="128" height="128" alt="">
+</p>
 
-Interactive picker for a Bazel monorepo's targets.
+<h1 align="center">basalt</h1>
 
-A large Bazel tree grows past the point where you can't remember where anything
+<p align="center">Interactive picker for a Bazel monorepo's targets.</p>
+
+A large Bazel tree grows past the point where you can remember where anything
 lives, and typing `bazel run //src/go/apps/falcon:linux` from memory is tedious
 and error-prone. `basalt` opens a three-panel view over every target in the
 tree, filters it as you type, and runs the thing you picked.
+
+![basalt browsing a monorepo](docs/basalt_screenshot.png)
+
+The layout, in the abstract — a package heading, its targets beneath it, the
+actions for whatever is selected, and the toolchain the selection needs:
 
 ```
 ┌─[BAZEL TARGETS 51/1359]────────┬────────────────────────┬─[TARGET ACTIONS]───────────────┐
@@ -34,7 +43,7 @@ Consequently:
 - **Issues and feature requests are welcome** — they are read, and they do
   influence what gets built.
 - **Pull requests cannot be accepted.** Patches sent through GitHub have nowhere
-  to land: the branch here is regenerated wholesale on each export, and any
+  to land: the branch here is regenerated wholesale on each export and any
   commit made against it would be overwritten. If you want a change, open an
   issue describing it.
 
