@@ -1,0 +1,15 @@
+# Build output. Releases are built in the private monorepo and attached to the
+# GitHub release; nothing built here belongs in the repository.
+/basalt
+*.rpm
+*.tar.gz
+*.AppImage
+
+# Go
+coverage.out
+*.test
+
+# Editors
+.idea/
+.vscode/
+*.swp
