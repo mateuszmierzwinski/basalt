@@ -27,6 +27,9 @@ type Context struct {
 	// its project's tests, which is where they almost always live — beside the
 	// code rather than in the same rule.
 	PackageHasTests bool
+	// LocalBin is the operator's ~/.local/bin, where "Copy to ~/.local/bin" puts a
+	// binary. Empty when the home directory is unknown, which hides that action.
+	LocalBin string
 }
 
 // Kind groups actions for display, so the panel can show them in a stable

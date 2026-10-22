@@ -6,6 +6,20 @@ All notable changes to basalt are recorded here, newest release first
 This file and the `%changelog` in `basalt.spec` must say the same thing — the
 spec's version is what `rpm -q --changelog` and `dnf` show (CLAUDE.md Rule 27.6).
 
+## [0.7.0] — 2026-10-21
+
+### Added
+
+- **`Bazel > Copy to ~/.local/bin`** for every `*_binary` target. It builds the
+  target and copies its executable into `~/.local/bin` — creating the directory
+  if it is missing — so the program can be tried by name from any shell without
+  installing a package. It runs as a single `bazel run` with `--run_under`
+  pointing at `install(1)`, so it behaves like the other Bazel actions: the
+  output is logged, basalt pauses on the result, and the target is coloured
+  passed or failed. It sits directly after `Bazel > Build`, and is hidden when
+  `install` is not on `$PATH` or the home directory cannot be found. An existing
+  file of the same name in `~/.local/bin` is replaced.
+
 ## [0.6.0] — 2026-08-16
 
 ### Added
@@ -36,6 +50,13 @@ spec's version is what `rpm -q --changelog` and `dnf` show (CLAUDE.md Rule 27.6)
 - Test fixtures name invented projects — `falcon`, `mixer`, `probe` — instead of
   the monorepo's real ones. A test has no business depending on a sibling
   project's name, and it is what lets the public mirror ship its tests unedited.
+
+### Rebuilt — 2026-09-28
+
+- **The published 0.6.0 package was built with Go 1.26.0**, fsnotify 1.9.0 and
+  golang.org/x/sys 0.47.0. These updates landed after this entry was first
+  written and are reconstructed here from Git history (commits `202d89a1`,
+  `7c914700`). No change in behaviour.
 
 ## [0.5.0] — 2026-08-16
 

@@ -170,6 +170,7 @@ rule kind and the tools actually installed:
 | `Bazel > Test` | `*_test` rules — runs that test alone |
 | `Bazel > Test package` | any other rule with tests under its package — runs `//<package>/...` |
 | `Bazel > Build` | every rule |
+| `Bazel > Copy to ~/.local/bin` | `*_binary` rules — builds the target and copies its executable into `~/.local/bin` for trying it out from any shell |
 | `Nano > <file>.md` | each Markdown file in the target's directory |
 | `Less > Last run log` | targets whose last bazel command left a log |
 | `Claude > Run here` | any target, when `claude` is installed |

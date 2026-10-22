@@ -10,6 +10,7 @@ const (
 	IDBazelTest        = "bazel.test"
 	IDBazelTestPackage = "bazel.test.package"
 	IDBazelBuild       = "bazel.build"
+	IDInstallLocal     = "install.local"
 	IDLessLog          = "less.log"
 	IDClaudeDSP        = "claude.dsp"
 	IDClaudeRun        = "claude.run"
@@ -25,6 +26,7 @@ var staticOrder = []string{
 	IDBazelTest,
 	IDBazelTestPackage,
 	IDBazelBuild,
+	IDInstallLocal,
 	IDLessLog,
 	IDClaudeDSP,
 	IDClaudeRun,
@@ -45,6 +47,7 @@ func loadStatic() {
 		IDBazelTest:        newBazelTest(),
 		IDBazelTestPackage: newBazelTestPackage(),
 		IDBazelBuild:       newBazelBuild(),
+		IDInstallLocal:     newInstallLocal(),
 		IDLessLog:          newLessAction(),
 		IDClaudeDSP:        newClaudeDSP(),
 		IDClaudeRun:        newClaude(),
@@ -68,7 +71,7 @@ func (r *registry) For(ctx Context) []Action {
 	available := make([]Action, 0, len(staticOrder)+len(ctx.Markdown))
 	for _, id := range staticOrder {
 		available = appendIfApplies(available, staticActions[id], ctx)
-		if id == IDBazelBuild {
+		if id == IDInstallLocal {
 			available = append(available, markdownActions(ctx)...)
 		}
 	}

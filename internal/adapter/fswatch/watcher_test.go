@@ -32,7 +32,7 @@ func TestWatcherSignalsOnBuildFileChange(t *testing.T) {
 	if err != nil {
 		t.Fatalf("New() error = %v", err)
 	}
-	defer w.Close()
+	defer func() { _ = w.Close() }()
 
 	writeBuildFile(t, dir)
 	if !waitForSignal(t, w.Changes(), 5*time.Second) {
@@ -46,7 +46,7 @@ func TestWatcherCoalescesBursts(t *testing.T) {
 	if err != nil {
 		t.Fatalf("New() error = %v", err)
 	}
-	defer w.Close()
+	defer func() { _ = w.Close() }()
 
 	for i := 0; i < 50; i++ {
 		writeBuildFile(t, dir)
@@ -66,7 +66,7 @@ func TestWatcherIgnoresIrrelevantWrites(t *testing.T) {
 	if err != nil {
 		t.Fatalf("New() error = %v", err)
 	}
-	defer w.Close()
+	defer func() { _ = w.Close() }()
 
 	// Rewriting an existing file the way a Dropbox sync would.
 	source := filepath.Join(dir, "main.go")
@@ -92,7 +92,7 @@ func TestWatcherNoticesNewDirectories(t *testing.T) {
 	if err != nil {
 		t.Fatalf("New() error = %v", err)
 	}
-	defer w.Close()
+	defer func() { _ = w.Close() }()
 
 	nested := filepath.Join(dir, "newpkg")
 	if err := os.Mkdir(nested, 0o755); err != nil {
@@ -145,7 +145,7 @@ func TestCloseTerminatesTheChangesChannel(t *testing.T) {
 func TestNewFailsOnMissingRoot(t *testing.T) {
 	w, err := New(filepath.Join(t.TempDir(), "absent"), testDebounce)
 	if err == nil {
-		w.Close()
+		_ = w.Close()
 		return // WalkDir tolerates a missing root; the watcher is simply empty.
 	}
 }

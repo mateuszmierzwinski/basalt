@@ -136,7 +136,7 @@ func TestHistorySurvivesAcrossSessions(t *testing.T) {
 
 func TestLoadReportsARejectedHistory(t *testing.T) {
 	store := newFakeStore()
-	store.Write(runlog.FilePath(testCache), []byte("{not json"), 0o644)
+	_ = store.Write(runlog.FilePath(testCache), []byte("{not json"), 0o644)
 
 	_, err := New(Config{Store: store, Probe: fakeProbe{}, CacheDir: testCache})
 	if !errors.Is(err, runlog.ErrCorruptHistory) {
@@ -148,7 +148,7 @@ func TestLoadReportsARejectedHistory(t *testing.T) {
 // empty, exactly like a fresh checkout.
 func TestARejectedHistoryStillYieldsAUsableRecorder(t *testing.T) {
 	store := newFakeStore()
-	store.Write(runlog.FilePath(testCache), []byte("{not json"), 0o644)
+	_ = store.Write(runlog.FilePath(testCache), []byte("{not json"), 0o644)
 
 	recorder, _ := New(Config{Store: store, Probe: fakeProbe{}, CacheDir: testCache})
 	if recorder == nil {

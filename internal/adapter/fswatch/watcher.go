@@ -38,7 +38,7 @@ func New(root string, debounce time.Duration) (port.TreeWatcher, error) {
 		return nil, err
 	}
 	if err := addRecursive(inner, root); err != nil {
-		inner.Close()
+		_ = inner.Close()
 		return nil, err
 	}
 	w := &watcher{

@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/mateuszmierzwinski/basalt/internal/adapter/ansi"
 	"github.com/mateuszmierzwinski/basalt/internal/adapter/fswatch"
@@ -59,7 +60,7 @@ func (f *sessionFactory) Start(ctx context.Context, preflight cli.Preflight, ind
 	if err != nil {
 		return err
 	}
-	defer terminal.Close()
+	defer func() { _ = terminal.Close() }()
 
 	watcher := f.watch(preflight)
 	defer closeWatcher(watcher)
@@ -126,7 +127,19 @@ func (f *sessionFactory) provider(preflight cli.Preflight, recorder history.Reco
 		Root:     preflight.Workspace.Root,
 		History:  recorder,
 		Tests:    tests,
+		LocalBin: localBin(),
 	})
+}
+
+// localBin is the operator's ~/.local/bin, the conventional per-user directory
+// on $PATH. Without a home directory there is nowhere to copy to, and the
+// action that would is hidden.
+func localBin() string {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return ""
+	}
+	return filepath.Join(home, ".local", "bin")
 }
 
 // watch starts the source-tree watcher, tolerating failure: without it basalt
@@ -142,6 +155,6 @@ func (f *sessionFactory) watch(preflight cli.Preflight) port.TreeWatcher {
 
 func closeWatcher(watcher port.TreeWatcher) {
 	if watcher != nil {
-		watcher.Close()
+		_ = watcher.Close()
 	}
 }

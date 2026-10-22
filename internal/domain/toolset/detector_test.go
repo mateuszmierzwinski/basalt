@@ -36,6 +36,7 @@ func TestDetectToleratesMissingIDEs(t *testing.T) {
 	env.EXPECT().LookPath("claude").Return("/home/u/.local/bin/claude", nil)
 	env.EXPECT().LookPath("goland").Return("", exec.ErrNotFound)
 	env.EXPECT().LookPath("clion").Return("", exec.ErrNotFound)
+	env.EXPECT().LookPath("install").Return("/usr/bin/install", nil)
 
 	set, err := NewDetector(env).Detect()
 	if err != nil {
@@ -58,6 +59,7 @@ func TestDetectFailsWithoutBazel(t *testing.T) {
 	env.EXPECT().LookPath("claude").Return("", exec.ErrNotFound)
 	env.EXPECT().LookPath("goland").Return("", exec.ErrNotFound)
 	env.EXPECT().LookPath("clion").Return("", exec.ErrNotFound)
+	env.EXPECT().LookPath("install").Return("/usr/bin/install", nil)
 
 	set, err := NewDetector(env).Detect()
 	if !errors.Is(err, ErrBazelMissing) {

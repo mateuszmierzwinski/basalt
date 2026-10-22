@@ -293,7 +293,7 @@ func (s *session) execute(ctx context.Context, spec port.CommandSpec, input *rea
 // and Ctrl+C dismiss the prompt too — being unable to leave a "press a key"
 // prompt is worse than dismissing it early.
 func (s *session) awaitAcknowledgement(input *reader, runErr error) {
-	fmt.Fprintf(s.terminal, "\r\n%s\r\n%s", outcomeLine(runErr), acknowledgePrompt)
+	_, _ = fmt.Fprintf(s.terminal, "\r\n%s\r\n%s", outcomeLine(runErr), acknowledgePrompt)
 	for key := range input.Events() {
 		switch key.Kind {
 		case keys.KindEnter, keys.KindEscape, keys.KindInterrupt:

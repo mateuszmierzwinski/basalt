@@ -43,12 +43,13 @@ func TestSetPathOf(t *testing.T) {
 
 func TestSetMissingReportsInKnownOrder(t *testing.T) {
 	set := NewSet(map[Tool]Availability{
-		ToolBazel:  {Tool: ToolBazel, Path: "/usr/local/bin/bazel", Found: true},
-		ToolNano:   {Tool: ToolNano, Path: "/usr/bin/nano", Found: true},
-		ToolLess:   {Tool: ToolLess, Path: "/usr/bin/less", Found: true},
-		ToolClaude: {Tool: ToolClaude, Found: false},
-		ToolGoland: {Tool: ToolGoland, Found: false},
-		ToolClion:  {Tool: ToolClion, Found: false},
+		ToolBazel:   {Tool: ToolBazel, Path: "/usr/local/bin/bazel", Found: true},
+		ToolNano:    {Tool: ToolNano, Path: "/usr/bin/nano", Found: true},
+		ToolLess:    {Tool: ToolLess, Path: "/usr/bin/less", Found: true},
+		ToolClaude:  {Tool: ToolClaude, Found: false},
+		ToolGoland:  {Tool: ToolGoland, Found: false},
+		ToolClion:   {Tool: ToolClion, Found: false},
+		ToolInstall: {Tool: ToolInstall, Path: "/usr/bin/install", Found: true},
 	})
 	want := []Tool{ToolClaude, ToolGoland, ToolClion}
 	if got := set.Missing(); !reflect.DeepEqual(got, want) {

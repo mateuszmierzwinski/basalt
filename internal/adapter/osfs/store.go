@@ -36,7 +36,7 @@ func (s *store) Write(path string, data []byte, perm fs.FileMode) error {
 }
 
 func writeAndClose(file *os.File, data []byte, perm fs.FileMode) error {
-	defer file.Close()
+	defer func() { _ = file.Close() }()
 	if _, err := file.Write(data); err != nil {
 		return err
 	}

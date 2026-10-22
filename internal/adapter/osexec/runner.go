@@ -80,7 +80,7 @@ func (r *interactiveRunner) runLogged(ctx context.Context, spec port.CommandSpec
 	if err != nil {
 		return r.run(ctx, spec, os.Stdout, os.Stderr)
 	}
-	defer log.Close()
+	defer func() { _ = log.Close() }()
 	return r.run(ctx, spec,
 		io.MultiWriter(os.Stdout, log),
 		io.MultiWriter(os.Stderr, log),

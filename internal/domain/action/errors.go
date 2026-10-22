@@ -7,4 +7,5 @@ import "errors"
 var (
 	ErrToolUnavailable = errors.New("the tool this action needs is not available")
 	ErrNoDirectory     = errors.New("the target has no resolved directory")
+	ErrNoDestination   = errors.New("there is no usable ~/.local/bin to copy into")
 )

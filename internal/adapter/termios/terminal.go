@@ -48,7 +48,7 @@ func Open() (port.Terminal, error) {
 		signals: make(chan os.Signal, 1),
 	}
 	if _, err := getTermios(t.fd()); err != nil {
-		file.Close()
+		_ = file.Close()
 		return nil, ErrNotATerminal
 	}
 	t.watchResize()

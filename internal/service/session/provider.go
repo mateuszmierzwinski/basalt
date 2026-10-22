@@ -20,6 +20,7 @@ type provider struct {
 	root     string
 	history  history.Recorder
 	tests    index.TestIndex
+	localBin string
 }
 
 // ProviderConfig groups the provider's dependencies. History may be nil, in
@@ -33,6 +34,9 @@ type ProviderConfig struct {
 	// Tests decides whether a non-test target offers to run its project's
 	// suite. It may be nil, in which case none does.
 	Tests index.TestIndex
+	// LocalBin is where "Copy to ~/.local/bin" puts a binary. Empty hides that
+	// action.
+	LocalBin string
 }
 
 // NewProvider builds the actions provider, returning the interface (Rule 7.2).
@@ -44,6 +48,7 @@ func NewProvider(config ProviderConfig) Actions {
 		root:     config.Root,
 		history:  config.History,
 		tests:    config.Tests,
+		localBin: config.LocalBin,
 	}
 }
 
@@ -75,6 +80,7 @@ func (p *provider) Context(selected target.Target) (action.Context, error) {
 		Markdown:        p.markdown(directory),
 		LastLog:         p.lastLog(selected.Label),
 		PackageHasTests: p.hasTests(selected.Package),
+		LocalBin:        p.localBin,
 	}, nil
 }
 

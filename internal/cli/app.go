@@ -80,24 +80,24 @@ func (a *app) preflight() (Preflight, error) {
 // every run is a bug nobody would ever notice.
 func (a *app) reportCacheProblem(result indexer.Result) {
 	if result.CacheError != nil {
-		fmt.Fprintf(a.stderr, "basalt: %v\n", result.CacheError)
+		_, _ = fmt.Fprintf(a.stderr, "basalt: %v\n", result.CacheError)
 	}
 }
 
 func (a *app) reportIndex(preflight Preflight, result indexer.Result) {
-	fmt.Fprintf(a.stdout, "monorepo:  %s\n", preflight.Workspace.Root)
-	fmt.Fprintf(a.stdout, "cache:     %s\n", preflight.Workspace.CacheDir)
-	fmt.Fprintf(a.stdout, "targets:   %d (from %s)\n", len(result.Index.Targets), result.Source)
+	_, _ = fmt.Fprintf(a.stdout, "monorepo:  %s\n", preflight.Workspace.Root)
+	_, _ = fmt.Fprintf(a.stdout, "cache:     %s\n", preflight.Workspace.CacheDir)
+	_, _ = fmt.Fprintf(a.stdout, "targets:   %d (from %s)\n", len(result.Index.Targets), result.Source)
 	a.reportMissingTools(preflight.Tools)
 }
 
 func (a *app) reportMissingTools(tools toolset.Set) {
 	for _, tool := range tools.Missing() {
-		fmt.Fprintf(a.stdout, "tools:     %s not found — its actions are hidden\n", tool)
+		_, _ = fmt.Fprintf(a.stdout, "tools:     %s not found — its actions are hidden\n", tool)
 	}
 }
 
 func (a *app) fail(err error) int {
-	fmt.Fprintf(a.stderr, "basalt: %v\n", err)
+	_, _ = fmt.Fprintf(a.stderr, "basalt: %v\n", err)
 	return exitFailure
 }
